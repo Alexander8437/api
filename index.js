@@ -1,5 +1,6 @@
-import express from 'express'
+const express = require('express');
 
+const PORT = process.env.PORT || 8082
 
 const app = express()
 
@@ -13,6 +14,6 @@ app.get("/home", (req, res) => {
 })
 
 
-app.listen(8082, () => {
+app.listen(PORT, () => {
     console.log("server created!!!")
 })
