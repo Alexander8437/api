@@ -13,8 +13,10 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }))
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 
 
+const CONNECTION_URL = "mongodb+srv://memories123:memories123@cluster0.aa9gsoh.mongodb.net/?retryWrites=true&w=majority"
 
-mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(PORT, () => console.log(`SERVER IS RUNNING ON ${PORT}`)))
     .catch((error) => console.log(error));
 
