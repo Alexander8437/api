@@ -1,14 +1,20 @@
 const express = require('express')
 const cors  = require('cors')
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+const dotenv = require('dotenv')
 
 const PORT = process.env.PORT || 8082
 
 const app = express()
-
-const router = express.Router()
+dotenv.config()
 
 app.use(express.json())
 app.use(cors())
+
+app.use(bodyParser.json({ limit: "30mb", extended: true }))
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
+
 
 app.get("/", (req, res) => {
     res.send("This is home page")
