@@ -9,7 +9,6 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    origin: 'http://localhost:3000/',
     credentials: true,
     optionSuccessStatus: 200
 }))
@@ -20,7 +19,10 @@ dotenv.config()
 const PORT = process.env.PORT || 8082
 
 mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(PORT, () => console.log(`SERVER IS RUNNING ON ${PORT} and DB connected.`)))
+    .then(() => app.listen(PORT, () => {
+        console.log(`SERVER IS RUNNING ON ${PORT} and DB connected.`);
+        console.log(process.env.CONNECTION_URL)
+    }))
     .catch((error) => console.log(error));
 
 
