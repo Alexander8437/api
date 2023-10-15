@@ -10,6 +10,7 @@ const app = express()
 app.use(express.json())
 app.use(cors({
     credentials: true,
+    methods: ['POST', 'GET', 'PUT', 'DELETE'],
     optionSuccessStatus: 200
 }))
 app.use(bodyParser.json({ limit: "30mb", extended: true }))
@@ -18,13 +19,7 @@ dotenv.config()
 
 const PORT = process.env.PORT || 8082
 
-// , { useNewUrlParser: true, useUnifiedTopology: true }
-mongoose.connect(process.env.CONNECTION_URL)
-    .then(() => app.listen(PORT, () => {
-        console.log(`SERVER IS RUNNING ON ${PORT} and DB connected.`);
-        console.log(process.env.CONNECTION_URL)
-    }))
-    .catch((error) => console.log(error));
+
 
 
 app.get("/", (req, res) => {
@@ -34,6 +29,14 @@ app.get("/", (req, res) => {
 app.get("/home", (req, res) => {
     res.json("Home!!!!!!!")
 })
+
+mongoose.connect(process.env.CONNECTION_URL, {
+    useNewUrlParser: true, useUnifiedTopology: true,
+})
+    .then(() => app.listen(PORT, () => console.log(`SERVER IS RUNNING ON ${PORT} and DB connected.`)))
+    .catch((error) => console.log(error));
+
+
 
 // app.listen(PORT, () => {
 //     console.log(`server created!!! ${PORT}` )
