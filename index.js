@@ -18,7 +18,8 @@ dotenv.config()
 
 const PORT = process.env.PORT || 8082
 
-mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+// , { useNewUrlParser: true, useUnifiedTopology: true }
+mongoose.connect(process.env.CONNECTION_URL)
     .then(() => app.listen(PORT, () => {
         console.log(`SERVER IS RUNNING ON ${PORT} and DB connected.`);
         console.log(process.env.CONNECTION_URL)
