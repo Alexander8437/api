@@ -18,10 +18,6 @@ app.get("/home", (req, res) => {
     res.json("Home!!!!!!!")
 })
 
-// app.use("/.netlify/functions/api", router)
-
-// module.exports.handler = ServerlessHttp(app)
-
 app.listen(PORT, () => {
     console.log(`server created!!! ${PORT}` )
 })
