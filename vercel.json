@@ -2,8 +2,8 @@
     "version": 2,
     "rewrites": [
         {
-            "src": "/index.js",
-            "destination": "/"
+            "src": "index.js",
+            "destination": "/api"
         }
     ]
 }
