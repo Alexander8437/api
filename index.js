@@ -23,11 +23,10 @@ app.get("/home", (req, res) => {
     res.json("Home!!!!!!!")
 })
 
-
+app.listen(PORT, () => console.log(`SERVER IS RUNNING ON ${PORT} and DB connected.`))
 
 mongoose.connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true, useUnifiedTopology: true,
 })
-    .then(() => app.listen(PORT, () => console.log(`SERVER IS RUNNING ON ${PORT} and DB connected.`)))
     .catch((error) => console.log(error));
 
