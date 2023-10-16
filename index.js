@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 
 
@@ -25,8 +25,8 @@ app.get("/home", (req, res) => {
 
 app.listen(PORT, () => console.log(`SERVER IS RUNNING ON ${PORT} and DB connected.`))
 
-mongoose.connect(process.env.CONNECTION_URL, {
-    useNewUrlParser: true, useUnifiedTopology: true,
-})
-    .catch((error) => console.log(error));
+// mongoose.connect(process.env.CONNECTION_URL, {
+//     useNewUrlParser: true, useUnifiedTopology: true,
+// })
+//     .catch((error) => console.log(error));
 
